@@ -52,7 +52,7 @@ jobs:
       run: |
         cp -r FHEM/* ${FHEM_DIR}/FHEM/
         cd ${FHEM_DIR}
-        prove --exec 'perl -MDevel::Cover=-silent,1 fhem.pl -t' -I FHEM -r -vv ${GITHUB_WORKSPACE}/t/[0-9][0-9]_*/  
+        prove --exec 'perl -MDevel::Cover=-silent,1 fhem.pl -t' -I FHEM -r -vv ${GITHUB_WORKSPACE}/t/98_HELLO/
       env:
         FHEM_DIR: /opt/fhem
 
