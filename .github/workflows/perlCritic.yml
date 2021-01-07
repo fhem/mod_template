@@ -1,0 +1,26 @@
+name: Perlcritic check
+
+on:
+  pull_request:
+  push:
+    branches:
+    paths:
+      - 'FHEM/**'
+      - 'lib/**'
+      - 't/**'
+      - '.github/workflows/perlCritic.yml'
+
+jobs:
+  critic:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+
+    - name: Perl Critic check
+      uses: Difegue/action-perlcritic@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      with:
+          args: ./FHEM/* ./lib/* ./t/*
