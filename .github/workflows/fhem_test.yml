@@ -9,7 +9,7 @@ on:
       - '.github/workflows/fhem_test.yml'
   
   schedule:
-    - cron: '43 16 * * 1,5'
+    - cron: '43 17 * * 1'
 
 jobs:
   build:
@@ -53,6 +53,9 @@ jobs:
         cp -r FHEM/* ${FHEM_DIR}/FHEM/
         cd ${FHEM_DIR}
         prove --exec 'perl -MDevel::Cover=-silent,1 fhem.pl -t' -I FHEM -r -vv ${GITHUB_WORKSPACE}/t/FHEM/[0-9][0-9]_*/
+        sleep 3
+        cp -R /opt/fhem/cover_db ${GITHUB_WORKSPACE}/
+        ls -l ${GITHUB_WORKSPACE}
       env:
         FHEM_DIR: /opt/fhem
 
