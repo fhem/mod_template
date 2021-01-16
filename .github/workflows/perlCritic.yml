@@ -16,11 +16,11 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
 
     - name: Perl Critic check
-      uses: Difegue/action-perlcritic@master
+      uses: Difegue/action-perlcritic@2.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
-          args: ./FHEM/* ./lib/* ./t/*
+          args: FHEM/* lib/* t/*
