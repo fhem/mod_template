@@ -21,6 +21,6 @@ jobs:
     - name: Perl Critic check
       uses: Difegue/action-perlcritic@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           args: ./FHEM/* ./lib/* ./t/*
