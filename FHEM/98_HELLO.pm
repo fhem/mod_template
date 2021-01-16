@@ -11,6 +11,7 @@ my %Hello_gets = (
 sub Hello_Initialize($) {
     my ($hash) = @_;
 
+
     $hash->{DefFn}      = \&Hello_Define;
     $hash->{UndefFn}    = \&Hello_Undef;
     $hash->{SetFn}      = \&Hello_Set;
