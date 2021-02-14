@@ -1,3 +1,10 @@
+2021-02-14 - Add workflow for perlcritc check (#2)
+
+* Add workflow for perlcritc
+
+* Update 98_HELLO.pm
+
+Fix perlcritic errors
 2021-02-14 - Fixed perlcritic erros
 2021-01-16 - Update 98_HELLO.pm
 
