@@ -8,7 +8,7 @@ my %Hello_gets = (
 	"satisfaction"  => "no"
 );
 
-sub Hello_Initialize($) {
+sub Hello_Initialize {
     my ($hash) = @_;
 
     $hash->{DefFn}      = \&Hello_Define;
@@ -23,7 +23,7 @@ sub Hello_Initialize($) {
         . $readingFnAttributes;
 }
 
-sub Hello_Define($$) {
+sub Hello_Define {
     my ($hash, $def) = @_;
     my @param = split('[ \t]+', $def);
     
@@ -37,13 +37,13 @@ sub Hello_Define($$) {
     return ;
 }
 
-sub Hello_Undef($$) {
+sub Hello_Undef {
     my ($hash, $arg) = @_; 
     # nothing to do
     return ;
 }
 
-sub Hello_Get($@) {
+sub Hello_Get {
 	my ($hash, @param) = @_;
 	
 	return '"get Hello" needs at least one argument' if (int(@param) < 2);
@@ -61,7 +61,7 @@ sub Hello_Get($@) {
 	return $Hello_gets{$opt};
 }
 
-sub Hello_Set($@) {
+sub Hello_Set {
 	my ($hash, @param) = @_;
 	
 	return '"set Hello" needs at least one argument' if (int(@param) < 2);
@@ -80,7 +80,7 @@ sub Hello_Set($@) {
 }
 
 
-sub Hello_Attr(@) {
+sub Hello_Attr {
 	my ($cmd,$name,$attr_name,$attr_value) = @_;
 	if($cmd eq "set") {
         if($attr_name eq "formal") {
