@@ -31,7 +31,7 @@ jobs:
 
     - name: install fhem via deb package
       run: |
-        wget -O- https://debian.fhem.de/archive.key 
+        wget https://debian.fhem.de/archive.key 
         gpg --dearmor < archive.key > /usr/share/keyrings/debianfhemde-archive-keyring.gpg
         deb [signed-by=/usr/share/keyrings/debianfhemde-archive-keyring.gpg] https://debian.fhem.de/nightly/ /
         rm archive.key
