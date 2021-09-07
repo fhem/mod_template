@@ -32,10 +32,10 @@ jobs:
     - name: install fhem via deb package
       run: |
         wget https://debian.fhem.de/archive.key 
-        sudo gpg --dearmor < archive.key > /usr/share/keyrings/debianfhemde-archive-keyring.gpg
+        gpg --dearmor < archive.key > /usr/share/keyrings/debianfhemde-archive-keyring.gpg
         ls -l  /usr/share/keyrings/
         rm archive.key
-        echo "[signed-by=/usr/share/keyrings/debianfhemde-archive-keyring.gpg] https://debian.fhem.de/nightly/ /" | sudo tee -a /etc/apt/sources.list
+        echo "deb [signed-by=/usr/share/keyrings/debianfhemde-archive-keyring.gpg] https://debian.fhem.de/nightly/ /" | sudo tee -a /etc/apt/sources.list
         sudo apt-get update -qq
         sudo apt-get install fhem -y
         sudo systemctl stop fhem
