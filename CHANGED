@@ -1,3 +1,6 @@
+2021-12-09 - Update 98_HELLO.pm
+
+generate perlcritic error
 2021-02-14 - Add workflow for perlcritc check (#2)
 
 * Add workflow for perlcritc
