@@ -40,7 +40,7 @@ sub Hello_Define {
 sub Hello_Undef {
     my ($hash, $arg) = @_; 
     # nothing to do
-    return ;
+    return undef;
 }
 
 sub Hello_Get {
