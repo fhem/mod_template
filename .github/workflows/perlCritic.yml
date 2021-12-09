@@ -32,3 +32,4 @@ jobs:
             -filter-mode="diff_context" \
             -fail-on-error="false" \
             -level="warning" \
+            FHEM T lib \
