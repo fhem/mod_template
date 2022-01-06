@@ -27,9 +27,8 @@ jobs:
       run: |
         perlcritic --verbose 1 --profile .perlcritic ./FHEM | \
             reviewdog -efm '%f:%l:%c:%m' \
-            -diff="git diff ${{github.head_ref}}..${{ github.base_ref}}" \
             -name="perlcritic" \
             -reporter="github-pr-check" \
-            -filter-mode="diff_context" \
+            -filter-mode="added" \
             -fail-on-error="false" \
             -level="warning" \
