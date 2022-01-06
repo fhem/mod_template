@@ -9,6 +9,8 @@ jobs:
   critic:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
+    permissions:
+      pull-requests: write
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -28,7 +30,7 @@ jobs:
         perlcritic --verbose 1 --profile .perlcritic ./FHEM | \
             reviewdog -efm '%f:%l:%c:%m' \
             -name="perlcritic" \
-            -reporter="github-pr-check" \
-            -filter-mode="added" \
+            -reporter="github-pr-review" \
+            -filter-mode="file" \
             -fail-on-error="false" \
             -level="warning" \
