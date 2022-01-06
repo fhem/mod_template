@@ -32,3 +32,17 @@ jobs:
             -filter-mode="added" \
             -fail-on-error="false" \
             -level="warning" \
+        perlcritic --verbose 1 --profile .perlcritic ./t | \
+            reviewdog -efm '%f:%l:%c:%m' \
+            -name="perlcritic" \
+            -reporter="github-pr-check" \
+            -filter-mode="added" \
+            -fail-on-error="false" \
+            -level="warning" \
+        perlcritic --verbose 1 --profile .perlcritic ./lib | \
+            reviewdog -efm '%f:%l:%c:%m' \
+            -name="perlcritic" \
+            -reporter="github-pr-check" \
+            -filter-mode="added" \
+            -fail-on-error="false" \
+            -level="warning" \
