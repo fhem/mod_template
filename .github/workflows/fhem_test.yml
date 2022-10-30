@@ -60,14 +60,14 @@ jobs:
         perl-version: ${{ matrix.perl }}
         install-modules-with: cpanm
         install-modules-args: --notest
-    - name: install fhem via deb package
+  
+    - name: Install FHEM via debian nightly 
+      uses: fhem/setup-fhem@v1.0.1
+
+    - name: change ownership of /opt/fhem
       run: |
-        wget -qO - http://debian.fhem.de/archive.key | sudo apt-key add -
-        echo "deb http://debian.fhem.de/nightly/ /" | sudo tee -a /etc/apt/sources.list
-        sudo apt-get update -qq
-        sudo apt-get install fhem -y
-        sudo systemctl stop fhem
-        sudo chown -R --reference=README.md /opt/fhem
+        sudo chown -R --reference=cpanfile /opt/fhem
+
 #    - name: run prove on perl modules (testscripts)
 #      run: prove --exec 'perl -MDevel::Cover=-silent,1 -I FHEM ' -I FHEM -r -vv t/FHEM/<packagename>
 #    - uses: codecov/codecov-action@v1
