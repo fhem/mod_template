@@ -21,7 +21,7 @@ jobs:
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/*/})"
       id: extract_branch
     - name: Checkout Repostory
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: update controls files
@@ -54,7 +54,7 @@ jobs:
 
     name: Perl ${{ matrix.perl }} on ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: shogo82148/actions-setup-perl@v1.23.1
       with:
         perl-version: ${{ matrix.perl }}
