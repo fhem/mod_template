@@ -25,7 +25,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: update controls files
-      uses: fhem/fhem-controls-actions@v2
+      uses: fhem/fhem-controls-actions@v3.0.1
       with:
         filename: ${{env.CONTROLS_FILENAME}} 
     - name: update CHANGED
