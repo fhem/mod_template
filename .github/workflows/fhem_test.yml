@@ -49,7 +49,7 @@ jobs:
       if: steps.git_commit_back.outputs.committed == 'true'
       uses: ad-m/github-push-action@v1.3.0
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ steps.extract_branch.outputs.branch }}
   test:
     runs-on: ubuntu-latest
