@@ -16,9 +16,9 @@ jobs:
       with:
         perl-version: 5.32
         install-modules-with: cpanm
-        # Pin Perl::Critic and Perl::Critic::Policy first: a transitive dependency of
-        # Task::PerlCriticAllPolicies requires 1.156 and aborts on 1.140.
-        install-modules: Perl::Critic@1.156 Perl::Critic::Policy@1.156 Task::PerlCriticAllPolicies
+        # Perl::Critic::Grape is listed explicitly before the policy bundle:
+        # Task::PerlCriticAllPolicies aborts the install when it is missing.
+        install-modules: Perl::Critic Perl::Critic::Grape Task::PerlCriticAllPolicies
         install-modules-args: --notest
     - uses: reviewdog/action-setup@v1
       with:
