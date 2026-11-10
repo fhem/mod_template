@@ -16,7 +16,9 @@ jobs:
       with:
         perl-version: 5.32
         install-modules-with: cpanm
-        install-modules: Perl::Critic Task::PerlCriticAllPolicies 
+        # Perl::Critic::Grape is listed explicitly before the policy bundle:
+        # Task::PerlCriticAllPolicies aborts the install when it is missing.
+        install-modules: Perl::Critic Perl::Critic::Grape Task::PerlCriticAllPolicies
         install-modules-args: --notest
     - uses: reviewdog/action-setup@v1
       with:
